@@ -46,7 +46,7 @@ public class MoveBubble : MonoBehaviour
             Vector3 targetPosition = mousePostion + offset; 
 
             targetPosition.x = Mathf.Clamp(targetPosition.x, -screenBound.x + objectBound.x, screenBound.x - objectBound.x);
-            targetPosition.y = Mathf.Clamp(targetPosition.y, -screenBound.y + objectBound.y, (screenBound.y - objectBound.y - boxLimiter))+1;
+            targetPosition.y = Mathf.Clamp(targetPosition.y, -screenBound.y + objectBound.y, (screenBound.y - objectBound.y - boxLimiter));
 
             draggingBubble.position = targetPosition;
         }
