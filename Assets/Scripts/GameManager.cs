@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     public List<GameObject> objectsToSpawn;
     [SerializeField] float spawnInterval = 2f;
 
+    private EnemySpawn spawnHere; //para chamar no script do spawn
     void Start()
     {
         StartCoroutine(SpawnEnemies());
@@ -18,22 +19,21 @@ public class GameManager : MonoBehaviour
     {
         while (true)
         {
-            SpawnEnemyAtRandomPoint();
+            ChooseSpawnPoint();
+            spawnHere.CallWarning();
+            yield return new WaitForSeconds(1f);
+            spawnHere.SpawnEnemy();
             yield return new WaitForSeconds(spawnInterval);
         }
     }
 
-    void SpawnEnemyAtRandomPoint()
+    void ChooseSpawnPoint()
     {
         if(enemySpawnPoints.Count > 0)
         {
             int randomIndex = Random.Range(0,enemySpawnPoints.Count);
             GameObject spawnPoint = enemySpawnPoints[randomIndex];
-
-            int randomObejct = Random.Range(0, objectsToSpawn.Count);
-            GameObject spawnObject  = objectsToSpawn[randomObejct];
-
-            Instantiate(spawnObject, spawnPoint.transform.position, Quaternion.identity);
+            spawnHere = spawnPoint.GetComponent<EnemySpawn>();
         }
     }
 }
