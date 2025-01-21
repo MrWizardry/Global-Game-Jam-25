@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    [Header("Vertical")]
     public List<GameObject> enemySpawnPoints;
     public List<GameObject> objectsToSpawn;
     [SerializeField] float spawnInterval = 2f;
