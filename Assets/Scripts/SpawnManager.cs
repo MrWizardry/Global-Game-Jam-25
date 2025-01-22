@@ -32,12 +32,12 @@ public class SpawnManager : MonoBehaviour
         
         while (manager.GetStageStarted() == false)
         {
-            Debug.Log(manager.GetStageStarted());
+            //Debug.Log(manager.GetStageStarted());
             yield return null;
         }
         while (manager.GetStageStarted() == true)
         {
-            Debug.Log("Spawning");
+            //Debug.Log("Spawning");
             yield return new WaitForSeconds(spawnInterval);
             ChooseSpawnPoint();
             if(spawnHere != null)

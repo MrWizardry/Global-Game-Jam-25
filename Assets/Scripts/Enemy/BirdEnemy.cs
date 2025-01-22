@@ -37,7 +37,7 @@ public class BirdEnemy : MonoBehaviour
                     rb2D.velocity = Vector3.zero;
                     actualStage = BirdStage.stage2;
                 }
-                Debug.Log(actualStage);
+                //Debug.Log(actualStage);
                 break;
 
             case BirdStage.stage2:
@@ -47,11 +47,11 @@ public class BirdEnemy : MonoBehaviour
                 {
                     actualStage = BirdStage.stage3;
                 }
-                Debug.Log(actualStage);
+                //Debug.Log(actualStage);
                 break;
             case BirdStage.stage3 :
                 rb2D.velocity = this.gameObject.transform.right * dashForce;
-                Debug.Log(actualStage);
+                //Debug.Log(actualStage);
                 break;
         }
     }
