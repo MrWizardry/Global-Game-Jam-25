@@ -23,7 +23,7 @@ public class MoveBubble : MonoBehaviour
         {
             Debug.Log("Clique");
             RaycastHit2D hit = Physics2D.Raycast(mainCam.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
-            if(hit.collider != null)
+            if(hit.collider != null && hit.collider.gameObject.tag == "Player")
             {
                 draggingBubble = hit.transform;
                 offset = draggingBubble.position - mainCam.ScreenToWorldPoint(Input.mousePosition);
