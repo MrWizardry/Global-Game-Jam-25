@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -9,9 +10,18 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Animator animatorPlayer;
     [SerializeField] private Animator animatorBG;
 
+    [SerializeField] private UpgradeManager upgradeManager;
     private void Start()
     {
         stageStarted = false;
+
+        upgradeManager = FindFirstObjectByType<UpgradeManager>().GetComponent<UpgradeManager>();
+        animatorPlayer = GameObject.Find("JogadorRoot").GetComponent<Animator>();
+        animatorBG = GameObject.Find("BackGround").GetComponent<Animator>();
+    }
+    public void GameOver()
+    {
+        SceneManager.LoadScene(0);
     }
     public bool GetStageStarted()
     {
@@ -25,5 +35,17 @@ public class GameManager : MonoBehaviour
     {
         animatorPlayer.SetTrigger("StartGame");
         animatorBG.SetTrigger("StartGame");
+    }
+    public void SetStatus()
+    {
+        upgradeManager.SetStatus();
+    }
+    public void UpgradeLife()
+    {
+        upgradeManager.UpgradeLife();
+    }
+    public void UpgradeMove()
+    {
+        upgradeManager.UpgradeMove();
     }
 }

@@ -11,7 +11,7 @@ public class SpawnManager : MonoBehaviour
 
     private float spawnInterval;
     private float gameTime= 0f;
-    private EnemySpawn spawnHere; //para chamar no script do spawn
+    [SerializeField] private EnemySpawn spawnHere; //para chamar no script do spawn
 
     [SerializeField] private GameManager manager;
     void Start()
@@ -27,7 +27,7 @@ public class SpawnManager : MonoBehaviour
         UpdateSpawnBehavior();
     }
 
-    IEnumerator SpawnEnemies()
+    public IEnumerator SpawnEnemies()
     {
         
         while (manager.GetStageStarted() == false)
@@ -37,6 +37,7 @@ public class SpawnManager : MonoBehaviour
         }
         while (manager.GetStageStarted() == true)
         {
+            Debug.Log("Spawning");
             yield return new WaitForSeconds(spawnInterval);
             ChooseSpawnPoint();
             if(spawnHere != null)
@@ -44,7 +45,10 @@ public class SpawnManager : MonoBehaviour
                 spawnHere.CallWarning();
                 yield return new WaitForSeconds(1f);
                 spawnHere.SpawnEnemy();
+                Debug.Log("Spawned");
             }
+
+            Debug.Log("endWhile");
         }
     }
     void ChooseSpawnPoint()

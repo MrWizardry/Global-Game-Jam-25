@@ -12,7 +12,7 @@ public class MoveBubble : MonoBehaviour
     private Vector2 screenBound;
     private Vector3 objectBound;
     [Range(2,17)]
-    [SerializeField]private int boxLimiter;
+    public int boxLimiter;
 
     void Start()
     {
@@ -61,5 +61,9 @@ public class MoveBubble : MonoBehaviour
             }
 
         }
-    }    
+    }
+    public void SetBubbleArea(int value)
+    {
+        boxLimiter = value;
+    }
 }

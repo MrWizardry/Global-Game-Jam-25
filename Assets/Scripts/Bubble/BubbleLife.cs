@@ -1,18 +1,25 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class BubbleLife : MonoBehaviour
 {
-    [SerializeField] private float bubbleMaxLife = 1f;
-    private float bubbleLife = 1f;
+    [SerializeField] private int bubbleMaxLife = 1;
+    [SerializeField] private int bubbleLife = 1;
 
-    void Start()
+    private GameManager gameManager;
+    private void Start()
     {
-        bubbleLife = bubbleMaxLife;
+        gameManager = FindFirstObjectByType<GameManager>().GetComponent<GameManager>();
+    }
+    public void SetLife(int value)
+    {
+        bubbleMaxLife = value;
+        bubbleLife = value;
     }
 
-    public void TakeDamage(float damage)
+    public void TakeDamage(int damage)
     {
         bubbleLife -= damage;
 
@@ -23,7 +30,7 @@ public class BubbleLife : MonoBehaviour
 
     }
 
-    public void Heal(float heal)
+    public void Heal(int heal)
     {
         bubbleLife += heal;
 
@@ -35,7 +42,7 @@ public class BubbleLife : MonoBehaviour
 
     private void Die()
     {
-        Destroy(gameObject);
+        gameManager.GameOver();
     }
 
 }

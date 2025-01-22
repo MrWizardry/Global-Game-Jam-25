@@ -8,17 +8,7 @@ public class EnemySpawn : MonoBehaviour
     [SerializeField] private GameObject warning;
 
     [SerializeField] private Transform warningPos;
-    // Start is called before the first frame update
-    void Start()
-    {
 
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
     public void CallSpawn()
     {
         SpawnWarning();
