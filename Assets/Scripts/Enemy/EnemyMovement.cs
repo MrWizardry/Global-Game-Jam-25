@@ -7,6 +7,8 @@ public class EnemyMovement : MonoBehaviour
 {
     [SerializeField] private float speed =   2f;
     [SerializeField] private Vector2 direction;
+
+    [SerializeField] private GameObject vfx;
     private Rigidbody2D rb2D;
     private void Start()
     {
@@ -27,6 +29,8 @@ public class EnemyMovement : MonoBehaviour
             {
                 playerLife.TakeDamage(1);
             }
+            Instantiate(vfx,transform.position, Quaternion.identity);
+            Destroy(this.gameObject);
         }
     }
 }

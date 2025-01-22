@@ -8,10 +8,14 @@ public class BubbleLife : MonoBehaviour
     [SerializeField] private int bubbleMaxLife = 1;
     [SerializeField] private int bubbleLife = 1;
 
+    [SerializeField] private Animator spriteAnimation;
+
+    [SerializeField] private bool canTakeDamage;
     private GameManager gameManager;
     private void Start()
     {
         gameManager = FindFirstObjectByType<GameManager>().GetComponent<GameManager>();
+        canTakeDamage = true;
     }
     public void SetLife(int value)
     {
@@ -21,15 +25,20 @@ public class BubbleLife : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        bubbleLife -= damage;
-
-        if(bubbleLife <= 0)
+        if (canTakeDamage)
         {
-            Die();
+            bubbleLife -= damage;
+            if (bubbleLife <= 0) spriteAnimation.Play("Die");
+
+            else spriteAnimation.Play("Hurt");
+            canTakeDamage = false;
         }
-
+        else return;
     }
-
+    public void CanTakeDamageNow()
+    {
+        canTakeDamage = true;
+    }
     public void Heal(int heal)
     {
         bubbleLife += heal;

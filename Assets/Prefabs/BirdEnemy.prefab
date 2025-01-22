@@ -50,6 +50,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 2
   direction: {x: 0, y: 1}
+  vfx: {fileID: 7111132323656702058, guid: d41c6cfdc3fe8754687e17f197df7bd3, type: 3}
 --- !u!114 &5570996734925581932
 MonoBehaviour:
   m_ObjectHideFlags: 0
