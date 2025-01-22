@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SpawnManager : MonoBehaviour
 {
@@ -8,14 +9,18 @@ public class SpawnManager : MonoBehaviour
     public List<GameObject> enemySpawnPoints;
     public List<GameObject> alternateSpawnPoints;
     [SerializeField] float initialspawnInterval = 2f;
-
     private float spawnInterval;
     private float gameTime= 0f;
     [SerializeField] private EnemySpawn spawnHere; //para chamar no script do spawn
 
     [SerializeField] private GameManager manager;
+    [Header("O bagulho da Altura")]
+    public GameObject bubbleClimb;
+    public GameObject sliderHeight;
     void Start()
     {
+        sliderHeight.SetActive(false);
+        bubbleClimb.SetActive(false);
         manager = GetComponent<GameManager>();
         spawnInterval = initialspawnInterval;
         StartCoroutine(SpawnEnemies());
@@ -40,6 +45,8 @@ public class SpawnManager : MonoBehaviour
             //Debug.Log("Spawning");
             yield return new WaitForSeconds(spawnInterval);
             ChooseSpawnPoint();
+            sliderHeight.SetActive(true);
+            bubbleClimb.SetActive(true);
             if(spawnHere != null)
             {
                 spawnHere.CallWarning();
