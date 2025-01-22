@@ -9,7 +9,7 @@ public class MoveBubble : MonoBehaviour
     private Camera mainCam;
     private Vector2 screenBound;
     private Vector3 objectBound;
-    [Range(2,50)]
+    [Range(2,17)]
     [SerializeField]private int boxLimiter;
 
     void Start()

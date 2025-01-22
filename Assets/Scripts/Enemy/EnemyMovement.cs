@@ -14,15 +14,15 @@ public class EnemyMovement : MonoBehaviour
         rb2D.velocity = direction * speed;
     }
 
-    void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.collider.tag == "Deleter")
+        if (collision.gameObject.tag == "Deleter")
         {
             Destroy(this.gameObject);
         }
-        if(collision.collider.tag == "Player")
+        if (collision.gameObject.tag == "Player")
         {
-            BubbleLife playerLife = collision.collider.GetComponent<BubbleLife>();
+            BubbleLife playerLife = collision.GetComponent<BubbleLife>();
             if (playerLife != null)
             {
                 playerLife.TakeDamage(1);
