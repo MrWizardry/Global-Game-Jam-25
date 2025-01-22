@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class MoveBubble : MonoBehaviour
 {
+    [SerializeField] private GameManager gameManager;
+
     private Transform draggingBubble = null;
     private Vector3 offset;
     private Camera mainCam;
@@ -14,40 +16,50 @@ public class MoveBubble : MonoBehaviour
 
     void Start()
     {
+        gameManager = FindAnyObjectByType<GameManager>().GetComponent<GameManager>();
         mainCam = Camera.main;
         screenBound = mainCam.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, mainCam.transform.position.z));
     }
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (gameManager.GetStageStarted() == false)
         {
-            RaycastHit2D hit = Physics2D.Raycast(mainCam.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
-            if(hit.collider != null && hit.collider.gameObject.tag == "Player")
-            {
-                draggingBubble = hit.transform;
-                offset = draggingBubble.position - mainCam.ScreenToWorldPoint(Input.mousePosition);
-                offset.z = 0;
-
-                var bounds = draggingBubble.GetComponent<Collider2D>().bounds;
-                objectBound = bounds.extents;
-            }
-        } 
-
-        if(draggingBubble != null && Input.GetMouseButtonUp(0))
-        {
-            draggingBubble = null;
+            Debug.Log(gameManager.GetStageStarted());
+            return;
         }
-
-        if(draggingBubble)
+        else
         {
-            Vector3 mousePostion = mainCam.ScreenToWorldPoint(Input.mousePosition);
-            mousePostion.z = 0;
-            Vector3 targetPosition = mousePostion + offset; 
+            if (Input.GetMouseButtonDown(0))
+            {
+                RaycastHit2D hit = Physics2D.Raycast(mainCam.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
+                if (hit.collider != null && hit.collider.gameObject.tag == "Player")
+                {
+                    draggingBubble = hit.transform;
+                    offset = draggingBubble.position - mainCam.ScreenToWorldPoint(Input.mousePosition);
+                    offset.z = 0;
 
-            targetPosition.x = Mathf.Clamp(targetPosition.x, -screenBound.x + objectBound.x, screenBound.x - objectBound.x);
-            targetPosition.y = Mathf.Clamp(targetPosition.y, -screenBound.y + objectBound.y, (screenBound.y - objectBound.y - boxLimiter));
+                    var bounds = draggingBubble.GetComponent<Collider2D>().bounds;
+                    objectBound = bounds.extents;
+                }
+            }
 
-            draggingBubble.position = targetPosition;
+            if (draggingBubble != null && Input.GetMouseButtonUp(0))
+            {
+                draggingBubble = null;
+            }
+
+            if (draggingBubble)
+            {
+                Vector3 mousePostion = mainCam.ScreenToWorldPoint(Input.mousePosition);
+                mousePostion.z = 0;
+                Vector3 targetPosition = mousePostion + offset;
+
+                targetPosition.x = Mathf.Clamp(targetPosition.x, -screenBound.x + objectBound.x, screenBound.x - objectBound.x);
+                targetPosition.y = Mathf.Clamp(targetPosition.y, -screenBound.y + objectBound.y, (screenBound.y - objectBound.y - boxLimiter));
+
+                draggingBubble.position = targetPosition;
+            }
+
         }
     }    
 }

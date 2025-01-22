@@ -12,8 +12,11 @@ public class SpawnManager : MonoBehaviour
     private float spawnInterval;
     private float gameTime= 0f;
     private EnemySpawn spawnHere; //para chamar no script do spawn
+
+    [SerializeField] private GameManager manager;
     void Start()
     {
+        manager = GetComponent<GameManager>();
         spawnInterval = initialspawnInterval;
         StartCoroutine(SpawnEnemies());
     }
@@ -26,7 +29,13 @@ public class SpawnManager : MonoBehaviour
 
     IEnumerator SpawnEnemies()
     {
-        while (true)
+        
+        while (manager.GetStageStarted() == false)
+        {
+            Debug.Log(manager.GetStageStarted());
+            yield return null;
+        }
+        while (manager.GetStageStarted() == true)
         {
             yield return new WaitForSeconds(spawnInterval);
             ChooseSpawnPoint();
