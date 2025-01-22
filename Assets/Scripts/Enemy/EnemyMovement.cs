@@ -5,11 +5,13 @@ using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour
 {
-    public float speed =   2f;
-
-    void Update()
+    [SerializeField] private float speed =   2f;
+    [SerializeField] private Vector2 direction;
+    private Rigidbody2D rb2D;
+    private void Start()
     {
-        transform.Translate(Vector3.down *  speed *  Time.deltaTime);
+        rb2D = GetComponent<Rigidbody2D>();
+        rb2D.velocity = direction * speed;
     }
 
     void OnCollisionEnter2D(Collision2D collision)
