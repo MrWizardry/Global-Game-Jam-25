@@ -21,7 +21,6 @@ public class MoveBubble : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            Debug.Log("Clique");
             RaycastHit2D hit = Physics2D.Raycast(mainCam.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
             if(hit.collider != null && hit.collider.gameObject.tag == "Player")
             {

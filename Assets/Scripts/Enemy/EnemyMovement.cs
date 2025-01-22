@@ -20,5 +20,13 @@ public class EnemyMovement : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
+        if(collision.collider.tag == "Player")
+        {
+            BubbleLife playerLife = collision.collider.GetComponent<BubbleLife>();
+            if (playerLife != null)
+            {
+                playerLife.TakeDamage(1);
+            }
+        }
     }
 }
