@@ -6,14 +6,22 @@ public class SpawnManager : MonoBehaviour
 {
     [Header("SpawnPoints")]
     public List<GameObject> enemySpawnPoints;
+    public List<GameObject> alternateSpawnPoints;
+    [SerializeField] float initialspawnInterval = 2f;
 
-
-
-    [SerializeField] float spawnInterval = 2f;
+    private float spawnInterval;
+    private float gameTime= 0f;
     private EnemySpawn spawnHere; //para chamar no script do spawn
     void Start()
     {
+        spawnInterval = initialspawnInterval;
         StartCoroutine(SpawnEnemies());
+    }
+
+    void Update()
+    {
+        gameTime += Time.deltaTime;
+        UpdateSpawnBehavior();
     }
 
     IEnumerator SpawnEnemies()
@@ -22,18 +30,52 @@ public class SpawnManager : MonoBehaviour
         {
             yield return new WaitForSeconds(spawnInterval);
             ChooseSpawnPoint();
-            spawnHere.CallWarning();
-            yield return new WaitForSeconds(1f);
-            spawnHere.SpawnEnemy();
+            if(spawnHere != null)
+            {
+                spawnHere.CallWarning();
+                yield return new WaitForSeconds(1f);
+                spawnHere.SpawnEnemy();
+            }
         }
     }
     void ChooseSpawnPoint()
     {
-        if (enemySpawnPoints.Count > 0)
+        List<GameObject> currentSpawnPoints = GetAvailableSpawnPoints();
+        if (currentSpawnPoints.Count > 0)
         {
-            int randomIndex = Random.Range(0, enemySpawnPoints.Count);
-            GameObject spawnPoint = enemySpawnPoints[randomIndex];
+            int randomIndex = Random.Range(0, currentSpawnPoints.Count);
+            GameObject spawnPoint = currentSpawnPoints[randomIndex];
             spawnHere = spawnPoint.GetComponent<EnemySpawn>();
+        }
+    }
+
+    List<GameObject> GetAvailableSpawnPoints()
+    {
+        if (gameTime < 10f) // Primeiros 30 segundos
+        {
+            return enemySpawnPoints;
+        }
+        else if (gameTime < 60f) // Entre 30 e 60 segundos
+        {
+            return alternateSpawnPoints;
+        }
+        else // Após 60 segundos
+        {
+            List<GameObject> combined = new List<GameObject>(enemySpawnPoints);
+            combined.AddRange(alternateSpawnPoints);
+            return combined;
+        }
+    }
+
+    void UpdateSpawnBehavior()
+    {
+        if (gameTime > 30f && gameTime <= 60f)
+        {
+            spawnInterval = 1.5f; // Aumenta a frequência do spawn
+        }
+        else if (gameTime > 60f)
+        {
+            spawnInterval = 1f; // Frequência ainda maior após 60 segundos
         }
     }
 }
