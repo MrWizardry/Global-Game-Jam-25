@@ -9,11 +9,11 @@ public class UpgradeManager : MonoBehaviour
     #region STATUS
     [SerializeField] private int bubbleMaxLife;
     [SerializeField] private int lifeMaxUp;
-    private int lifeUpCount = 0;
+    public int lifeUpCount = 0;
 
     [SerializeField] private int bubbleMaxArea;
     [SerializeField] private int maxAreaUp;
-    private int areUpcount = 17;
+    public int areaUpCount = 0;
     #endregion
 
     [SerializeField] private BubbleLife bubbleLife;
@@ -51,10 +51,10 @@ public class UpgradeManager : MonoBehaviour
     }
     public void UpgradeMove()
     {
-        if (areUpcount >= maxAreaUp)
+        if (areaUpCount < 15)
         {
             bubbleMaxArea--;
-            areUpcount--;
+            areaUpCount++;
         }
     }
 }
