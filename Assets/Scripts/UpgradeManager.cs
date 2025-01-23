@@ -5,17 +5,24 @@ using UnityEngine;
 public class UpgradeManager : MonoBehaviour
 {
     [SerializeField] UpgradesSO bubbleStatus;
+    [Header("Points")]
+    private int totalPoints;
 
     #region STATUS
+    [Header("Life")]
     [SerializeField] private int bubbleMaxLife;
     [SerializeField] private int lifeMaxUp;
+    [SerializeField] private int lifeUpPrice;
     public int lifeUpCount = 0;
 
+    [Header("Move Area")]
     [SerializeField] private int bubbleMaxArea;
     [SerializeField] private int maxAreaUp;
+    [SerializeField] private int moveAreaUpPrice;
     public int areaUpCount = 0;
     #endregion
 
+    [Header("Debug")]
     [SerializeField] private BubbleLife bubbleLife;
     [SerializeField] private MoveBubble bubbleMove;
 
@@ -43,18 +50,30 @@ public class UpgradeManager : MonoBehaviour
     }
     public void UpgradeLife()
     {
-        if (lifeUpCount < lifeMaxUp)
+        if (lifeUpCount < lifeMaxUp && totalPoints >= lifeUpPrice)
         {
             bubbleMaxLife++;
             lifeUpCount++;
+
+            totalPoints -= lifeUpPrice;
         }
     }
     public void UpgradeMove()
     {
-        if (areaUpCount < 15)
+        if (areaUpCount < 15 && totalPoints >= moveAreaUpPrice)
         {
             bubbleMaxArea--;
             areaUpCount++;
+
+            totalPoints -= moveAreaUpPrice;
         }
+    }
+    public int GetTotalPoints()
+    {
+        return totalPoints;
+    }
+    public void SetTotalPoints(int value)
+    {
+        totalPoints = value;
     }
 }

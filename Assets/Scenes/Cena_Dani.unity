@@ -3039,6 +3039,7 @@ MonoBehaviour:
   manager: {fileID: 0}
   bubbleClimb: {fileID: 948507336}
   sliderHeight: {fileID: 1770897551}
+  bubblePoints: {fileID: 0}
 --- !u!114 &1311103473
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3065,6 +3066,7 @@ MonoBehaviour:
   manager: {fileID: 0}
   bubbleClimb: {fileID: 948507336}
   sliderHeight: {fileID: 1770897551}
+  bubblePoints: {fileID: 0}
 --- !u!1 &1321727595
 GameObject:
   m_ObjectHideFlags: 0
@@ -4807,6 +4809,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4462277461182073569, guid: 17907763553f3f244a1228fba150ae74, type: 3}
+      propertyPath: sfxSlider
+      value: 
+      objectReference: {fileID: 56841484}
+    - target: {fileID: 4462277461182073569, guid: 17907763553f3f244a1228fba150ae74, type: 3}
+      propertyPath: musicSlider
+      value: 
+      objectReference: {fileID: 1371590334}
     - target: {fileID: 6841586153790830488, guid: 17907763553f3f244a1228fba150ae74, type: 3}
       propertyPath: m_Name
       value: AudioManager

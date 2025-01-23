@@ -18,8 +18,12 @@ public class BubblePoints : MonoBehaviour
     private int currentSessionScore = 0; // Pontuação da partida atual
     private int totalScore = 0; // Pontuação acumulada de todas as partidas
 
+
+    private UpgradeManager upgradeManager;
     void Start()
     {
+        upgradeManager = FindFirstObjectByType<UpgradeManager>().GetComponent<UpgradeManager>();
+        totalScore = upgradeManager.GetTotalPoints();
         // Exibe a pontuação acumulada no menu, se aplicável
         if (menuTotalScoreText != null)
         {
@@ -38,6 +42,11 @@ public class BubblePoints : MonoBehaviour
         {
             inGameScoreText.text = $"Score: {currentSessionScore}";
         }
+
+        if (totalScore != upgradeManager.GetTotalPoints())
+        {
+            ChangeUI();
+        }
     }
 
     // Chamado quando o jogador perde (por exemplo, ao entrar na tela de Game Over)
@@ -52,16 +61,20 @@ public class BubblePoints : MonoBehaviour
             gameOverScoreText.text = $"Game Over Score: {currentSessionScore}";
         }
 
+        upgradeManager.SetTotalPoints(totalScore);
+        // Reseta o tempo e a pontuação da partida atual para a próxima partida
+        ResetSessionScore();
+    }
+    public void ChangeUI()
+    {
+        totalScore = upgradeManager.GetTotalPoints();
         // Atualiza o texto do menu principal, se aplicável
         if (menuTotalScoreText != null)
         {
             menuTotalScoreText.text = $"Total Score: {totalScore}";
         }
 
-        // Reseta o tempo e a pontuação da partida atual para a próxima partida
-        ResetSessionScore();
     }
-
     private void ResetSessionScore()
     {
         elapsedTime = 0f;

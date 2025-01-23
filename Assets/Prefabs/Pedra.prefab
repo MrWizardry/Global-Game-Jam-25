@@ -49,6 +49,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5.87
   direction: {x: 0, y: -1}
+  vfxTrail: {fileID: 0}
   vfx: {fileID: 7111132323656702058, guid: d41c6cfdc3fe8754687e17f197df7bd3, type: 3}
 --- !u!70 &-6577701454654954258
 CapsuleCollider2D:

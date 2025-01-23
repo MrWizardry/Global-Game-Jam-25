@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class UIUpgradeCount : MonoBehaviour
 {
-    private UpgradeManager upgradeManager;
+    [SerializeField] private UpgradeManager upgradeManager;
 
     [SerializeField] private TextMeshProUGUI textLife;
     [SerializeField] private TextMeshProUGUI textArea;
@@ -18,6 +18,7 @@ public class UIUpgradeCount : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(upgradeManager == null) { upgradeManager = FindAnyObjectByType<UpgradeManager>().GetComponent<UpgradeManager>(); }
         textLife.SetText(upgradeManager.lifeUpCount.ToString());
         textArea.SetText(upgradeManager.areaUpCount.ToString());
     }

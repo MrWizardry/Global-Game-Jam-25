@@ -9,6 +9,7 @@ public class EnemyMovement : MonoBehaviour
     [SerializeField] private float speed =   2f;
     [SerializeField] private Vector2 direction;
 
+    [SerializeField] private FeatherVFX vfxTrail;
     [SerializeField] private GameObject vfx;
     private Rigidbody2D rb2D;
     private void Start()
@@ -22,6 +23,7 @@ public class EnemyMovement : MonoBehaviour
     {
         if (collision.gameObject.tag == "Deleter")
         {
+            if(vfxTrail != null) vfxTrail.DetachParticles();
             Destroy(this.gameObject);
         }
         if (collision.gameObject.tag == "Player")
@@ -34,6 +36,7 @@ public class EnemyMovement : MonoBehaviour
                 audioManager.PlaySFX(audioManager.two);
             }
             Instantiate(vfx,transform.position, Quaternion.identity);
+            if (vfxTrail != null) vfxTrail.DetachParticles();
             Destroy(this.gameObject);
         }
     }
