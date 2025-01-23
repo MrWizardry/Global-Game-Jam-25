@@ -500,9 +500,11 @@ MonoBehaviour:
   bubbleStatus: {fileID: 11400000, guid: a616ea3c2c1659b468def038f3468e60, type: 2}
   bubbleMaxLife: 0
   lifeMaxUp: 5
+  lifeUpPrice: 100
   lifeUpCount: 0
   bubbleMaxArea: 0
   maxAreaUp: 2
+  moveAreaUpPrice: 100
   areaUpCount: 0
   bubbleLife: {fileID: 0}
   bubbleMove: {fileID: 0}
@@ -1805,6 +1807,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87e4e31c9ae722b4fb340794dc780e76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  upgradeManager: {fileID: 0}
   textLife: {fileID: 990991373}
   textArea: {fileID: 1168514168}
 --- !u!1 &519420028
