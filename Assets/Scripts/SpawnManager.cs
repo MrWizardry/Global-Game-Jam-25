@@ -14,13 +14,15 @@ public class SpawnManager : MonoBehaviour
     [SerializeField] private EnemySpawn spawnHere; //para chamar no script do spawn
 
     [SerializeField] private GameManager manager;
-    [Header("O bagulho da Altura")]
+    [Header("O bagulho da Altura & Ponto")]
     public GameObject bubbleClimb;
     public GameObject sliderHeight;
+    public GameObject bubblePoints;
     void Start()
     {
         sliderHeight.SetActive(false);
         bubbleClimb.SetActive(false);
+        
         manager = GetComponent<GameManager>();
         spawnInterval = initialspawnInterval;
         StartCoroutine(SpawnEnemies());
@@ -47,6 +49,7 @@ public class SpawnManager : MonoBehaviour
             ChooseSpawnPoint();
             sliderHeight.SetActive(true);
             bubbleClimb.SetActive(true);
+            bubblePoints.SetActive(true);
             if(spawnHere != null)
             {
                 spawnHere.CallWarning();
