@@ -11,6 +11,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Animator animatorBG;
 
     [SerializeField] private UpgradeManager upgradeManager;
+
+    [SerializeField] private GameObject gameOverMenu;
     private void Start()
     {
         stageStarted = false;
@@ -21,6 +23,12 @@ public class GameManager : MonoBehaviour
     }
     public void GameOver()
     {
+        Time.timeScale = 0;
+        gameOverMenu.SetActive(true);
+    }
+    public void ResetGame()
+    {
+        Time.timeScale = 1;
         SceneManager.LoadScene(0);
     }
     public bool GetStageStarted()

@@ -28,7 +28,7 @@ public class BubbleLife : MonoBehaviour
         if (canTakeDamage)
         {
             bubbleLife -= damage;
-            if (bubbleLife <= 0) spriteAnimation.Play("Die");
+            if (bubbleLife <= 0) Die();
 
             else spriteAnimation.Play("Hurt");
             canTakeDamage = false;
@@ -51,6 +51,8 @@ public class BubbleLife : MonoBehaviour
 
     private void Die()
     {
+        spriteAnimation.Play("Die");
+
         gameManager.GameOver();
     }
 

@@ -48,7 +48,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4994a028133e0441bda2c1560740e19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2
+  speed: 5
   direction: {x: 0, y: 1}
   vfx: {fileID: 7111132323656702058, guid: d41c6cfdc3fe8754687e17f197df7bd3, type: 3}
 --- !u!114 &5570996734925581932
@@ -63,8 +63,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64494094ee56d244f97ffdf9f2508490, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxTimeToStop: 3
-  minTimeToStop: 7
+  maxTimeToStop: 4
+  minTimeToStop: 3
   rotationSpeed: 100
   timer: 2
   dashForce: 30
