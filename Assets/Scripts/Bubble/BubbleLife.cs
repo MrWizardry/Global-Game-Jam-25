@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class BubbleLife : MonoBehaviour
 {
+    AudioManager audioManager;
     [SerializeField] private int bubbleMaxLife = 1;
     [SerializeField] private int bubbleLife = 1;
 
@@ -16,6 +17,7 @@ public class BubbleLife : MonoBehaviour
     {
         gameManager = FindFirstObjectByType<GameManager>().GetComponent<GameManager>();
         canTakeDamage = true;
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
     }
     public void SetLife(int value)
     {
@@ -52,6 +54,7 @@ public class BubbleLife : MonoBehaviour
     private void Die()
     {
         spriteAnimation.Play("Die");
+        audioManager.PlaySFX(audioManager.one);
 
         gameManager.GameOver();
     }
