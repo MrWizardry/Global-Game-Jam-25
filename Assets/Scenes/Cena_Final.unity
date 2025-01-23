@@ -4024,6 +4024,7 @@ GameObject:
   - component: {fileID: 1311103470}
   - component: {fileID: 1311103473}
   - component: {fileID: 1311103472}
+  - component: {fileID: 1311103474}
   m_Layer: 0
   m_Name: Game Manager
   m_TagString: Untagged
@@ -4116,6 +4117,21 @@ MonoBehaviour:
   bubbleClimb: {fileID: 948507336}
   sliderHeight: {fileID: 1770897551}
   bubblePoints: {fileID: 991447511}
+--- !u!114 &1311103474
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1311103469}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3defdfd0ae80524192ea4fbe3aaf4db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SpawnObject: {fileID: 1079644142817735081, guid: 7b4fb6e32b4a52e458a671c781ecc6fd, type: 3}
+  spawnRange: {x: 4.5, y: 8.5}
+  spawnInterval: 10
 --- !u!1 &1321727595
 GameObject:
   m_ObjectHideFlags: 0

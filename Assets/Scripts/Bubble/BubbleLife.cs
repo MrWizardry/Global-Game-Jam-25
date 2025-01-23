@@ -14,11 +14,17 @@ public class BubbleLife : MonoBehaviour
 
     [SerializeField] private bool canTakeDamage;
     private GameManager gameManager;
+
+    private Vector3 origScale;
+    private bool canTakeDebuff;
     private void Start()
     {
         gameManager = FindFirstObjectByType<GameManager>().GetComponent<GameManager>();
         canTakeDamage = true;
+        canTakeDebuff = true;
         audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+
+        origScale = transform.localScale;
     }
     public void SetLife(int value)
     {
@@ -51,13 +57,27 @@ public class BubbleLife : MonoBehaviour
             bubbleLife = bubbleMaxLife;
         }
     }
-
     private void Die()
     {
         spriteAnimation.Play("Die");
         audioManager.PlaySFX(audioManager.one);
         bubblePointsManager.OnGameOver();
         gameManager.GameOver();
+    }
+    public void GotBigger(float value, float scale)
+    {
+        StartCoroutine(TimeBigger(value,scale));
+    }
+    public IEnumerator TimeBigger(float time, float scaleMult)
+    {
+        if(canTakeDebuff)
+        {
+            canTakeDebuff = false;
+            transform.localScale = origScale * scaleMult;
+            yield return new WaitForSeconds(time);
+            transform.localScale = origScale;
+            canTakeDebuff = true;
+        }
     }
 
 }
