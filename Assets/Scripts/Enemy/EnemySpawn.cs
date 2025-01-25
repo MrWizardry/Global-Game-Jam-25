@@ -8,7 +8,12 @@ public class EnemySpawn : MonoBehaviour
     [SerializeField] private GameObject warning;
 
     [SerializeField] private Transform warningPos;
+    private AudioManager audioManager;
 
+    void Start()
+    {
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+    }
     public void CallSpawn()
     {
         SpawnWarning();
@@ -17,7 +22,7 @@ public class EnemySpawn : MonoBehaviour
     private void SpawnWarning()
     {
         GameObject obj = Instantiate(warning, warningPos.position, Quaternion.identity);
-
+        audioManager.PlaySFX(audioManager.Warning);
         Destroy(obj,1f);
     }
     public void CallWarning()

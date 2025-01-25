@@ -13,10 +13,12 @@ public class GameManager : MonoBehaviour
     [SerializeField] private UpgradeManager upgradeManager;
 
     [SerializeField] private GameObject gameOverMenu;
+
+    private AudioManager audioManager;
     private void Start()
     {
         stageStarted = false;
-
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
         upgradeManager = FindFirstObjectByType<UpgradeManager>().GetComponent<UpgradeManager>();
         animatorPlayer = GameObject.Find("JogadorRoot").GetComponent<Animator>();
         animatorBG = GameObject.Find("BackGround").GetComponent<Animator>();
@@ -42,6 +44,7 @@ public class GameManager : MonoBehaviour
     public void StartGameAnim()
     {
         animatorPlayer.SetTrigger("StartGame");
+        audioManager.PlaySFX(audioManager.startSound);
         animatorBG.SetTrigger("StartGame");
     }
     public void SetStatus()

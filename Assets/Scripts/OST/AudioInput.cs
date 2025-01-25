@@ -16,12 +16,12 @@ public class AudioInput : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            audioManager.PlaySFX(audioManager.one);
+            audioManager.PlaySFX(audioManager.death);
         }
 
         if (Input.GetKeyDown(KeyCode.W))
         {
-            audioManager.PlaySFX(audioManager.two);
+            audioManager.PlaySFX(audioManager.hurt);
         }
     }
 }

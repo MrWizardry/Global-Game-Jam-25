@@ -33,7 +33,7 @@ public class EnemyMovement : MonoBehaviour
             if (playerLife != null)
             {
                 playerLife.TakeDamage(1);
-                audioManager.PlaySFX(audioManager.two);
+                audioManager.PlaySFX(audioManager.hurt);
             }
             Instantiate(vfx,transform.position, Quaternion.identity);
             if (vfxTrail != null) vfxTrail.DetachParticles();

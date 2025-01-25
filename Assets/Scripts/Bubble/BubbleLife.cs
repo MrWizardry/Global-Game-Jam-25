@@ -60,7 +60,7 @@ public class BubbleLife : MonoBehaviour
     private void Die()
     {
         spriteAnimation.Play("Die");
-        audioManager.PlaySFX(audioManager.one);
+        audioManager.PlaySFX(audioManager.death);
         bubblePointsManager.OnGameOver();
         gameManager.GameOver();
     }

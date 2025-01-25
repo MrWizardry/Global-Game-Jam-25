@@ -9,6 +9,13 @@ public class LoadSliders : MonoBehaviour
     public GameObject sliderMusic;
     public GameObject sliderSFX;
 
+    private AudioManager audioManager;
+
+    void Start()
+    {
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+    }
+
     public void AppearSliders()
     {
         slidersOFF.SetActive(false);
@@ -29,5 +36,10 @@ public class LoadSliders : MonoBehaviour
             sliderMusic.SetActive(false);
             sliderSFX.SetActive(false);
         }
+    }
+
+    public void PlayButtonSound()
+    {
+        audioManager.PlaySFX(audioManager.ButtonSound);
     }
 }

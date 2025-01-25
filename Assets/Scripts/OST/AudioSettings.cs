@@ -23,6 +23,8 @@ public class AudioSettings : MonoBehaviour
         Mixer.SetFloat("music", Mathf.Log10(volume) * 20);
         PlayerPrefs.SetFloat("Music", volume);
         PlayerPrefs.Save();
+
+        FindObjectOfType<AudioManager>().UpdateMusicVolume(volume);
     }
 
     public void SetSFXVolume()

@@ -14,6 +14,7 @@ public class BirdEnemy : MonoBehaviour
 
     private Rigidbody2D rb2D;
     private Animator animator;
+    private AudioManager audioManager;
 
     [SerializeField] private GameObject playerGB;
 
@@ -30,6 +31,8 @@ public class BirdEnemy : MonoBehaviour
         animator = this.gameObject.GetComponent<Animator>();
 
         timeToStop = Random.Range(minTimeToStop, maxTimeToStop);
+
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
     }
     private void FixedUpdate()
     {
@@ -57,10 +60,13 @@ public class BirdEnemy : MonoBehaviour
                     animator.Play("Phase_03");
                     trailGO.SetActive(true);
                     CallStopVFX();
+
+                    audioManager.PlaySFX(audioManager.Bird_Attack);
                 }
                 //Debug.Log(actualStage);
                 break;
             case BirdStage.stage3 :
+                
                 rb2D.velocity = this.gameObject.transform.right * dashForce;
                 //Debug.Log(actualStage);
                 break;
@@ -82,3 +88,4 @@ public enum BirdStage
 {
     stage1,stage2,stage3
 }
+

@@ -6,7 +6,7 @@ public class DebuffEnemy : MonoBehaviour
 {
     AudioManager audioManager;
     [SerializeField] private GameObject vfx;
-
+    
     [SerializeField] private float debuffTime;
     [SerializeField] private float debuffScale;
     private void Start()
@@ -23,7 +23,7 @@ public class DebuffEnemy : MonoBehaviour
             if (playerLife != null)
             {
                 playerLife.GotBigger(debuffTime, debuffScale);
-                audioManager.PlaySFX(audioManager.two);
+                audioManager.PlaySFX(audioManager.Soap);
             }
             Instantiate(vfx, transform.position, Quaternion.identity);
             Destroy(this.gameObject);
