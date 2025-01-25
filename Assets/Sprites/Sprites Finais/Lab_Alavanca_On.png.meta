@@ -1,10 +1,13 @@
 fileFormatVersion: 2
-guid: 0374901bc4bd4ee4e8632a465594090d
+guid: 2d1b7c37cb4b8ab489ccd9e26c2813c5
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4420837324563924570
-    second: Nota 1_0
+      213: 8500636641115880151
+    second: Lab_Alavanca_On_0
+  - first:
+      213: -333241669784697462
+    second: Lab_Alavanca_On_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +103,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Nota 1_0
+      name: Lab_Alavanca_On_0
       rect:
         serializedVersion: 2
-        x: 219
-        y: 80
-        width: 542
-        height: 820
+        x: 488
+        y: 774
+        width: 96
+        height: 119
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -114,8 +117,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a56cb64cf18f95d30800000000000000
-      internalID: 4420837324563924570
+      spriteID: 7dab16e9cf358f570800000000000000
+      internalID: 8500636641115880151
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Lab_Alavanca_On_1
+      rect:
+        serializedVersion: 2
+        x: 486
+        y: 493
+        width: 95
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a8500288776106bf0800000000000000
+      internalID: -333241669784697462
       vertices: []
       indices: 
       edges: []
@@ -130,8 +154,7 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      Nota 1_0: 4420837324563924570
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

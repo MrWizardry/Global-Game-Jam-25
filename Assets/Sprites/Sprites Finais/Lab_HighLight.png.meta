@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 0374901bc4bd4ee4e8632a465594090d
+guid: d0426d92e643bee48a39a8e95d6b451d
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4420837324563924570
-    second: Nota 1_0
+      213: -2570153921853612621
+    second: Lab_HighLight_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Nota 1_0
+      name: Lab_HighLight_0
       rect:
         serializedVersion: 2
-        x: 219
-        y: 80
-        width: 542
-        height: 820
+        x: 0
+        y: 0
+        width: 1080
+        height: 1920
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -114,8 +114,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a56cb64cf18f95d30800000000000000
-      internalID: 4420837324563924570
+      spriteID: 3bd96d510aaf45cd0800000000000000
+      internalID: -2570153921853612621
       vertices: []
       indices: 
       edges: []
@@ -130,8 +130,7 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      Nota 1_0: 4420837324563924570
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
