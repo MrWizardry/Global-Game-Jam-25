@@ -5,21 +5,32 @@ using UnityEngine;
 public class MoveBubble : MonoBehaviour
 {
     [SerializeField] private GameManager gameManager;
+    [SerializeField] private SpriteRenderer bgImage; // Referência ao SpriteRenderer do fundo
 
     private Transform draggingBubble = null;
     private Vector3 offset;
     private Camera mainCam;
-    private Vector2 screenBound;
+    private Vector2 backgroundSize;
     private Vector3 objectBound;
-    [Range(2,17)]
+    [Range(2, 17)]
     public int boxLimiter;
 
     void Start()
     {
         gameManager = FindAnyObjectByType<GameManager>().GetComponent<GameManager>();
         mainCam = Camera.main;
-        screenBound = mainCam.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, mainCam.transform.position.z));
+
+        // Obtém o tamanho do fundo baseado no SpriteRenderer
+        if (bgImage != null)
+        {
+            backgroundSize = bgImage.bounds.size / 2f; // Metade do tamanho do fundo para os limites
+        }
+        else
+        {
+            Debug.LogError("bgImage não está atribuído. Atribua o SpriteRenderer do fundo.");
+        }
     }
+
     void Update()
     {
         if (gameManager.GetStageStarted() == false)
@@ -54,14 +65,15 @@ public class MoveBubble : MonoBehaviour
                 mousePostion.z = 0;
                 Vector3 targetPosition = mousePostion + offset;
 
-                targetPosition.x = Mathf.Clamp(targetPosition.x, -screenBound.x + objectBound.x, screenBound.x - objectBound.x);
-                targetPosition.y = Mathf.Clamp(targetPosition.y, -screenBound.y + objectBound.y, (screenBound.y - objectBound.y - boxLimiter));
+                // Define os limites com base no tamanho do fundo
+                targetPosition.x = Mathf.Clamp(targetPosition.x, -backgroundSize.x + objectBound.x, backgroundSize.x - objectBound.x);
+                targetPosition.y = Mathf.Clamp(targetPosition.y, -backgroundSize.y + objectBound.y, backgroundSize.y - objectBound.y - boxLimiter);
 
                 draggingBubble.position = targetPosition;
             }
-
         }
     }
+
     public void SetBubbleArea(int value)
     {
         boxLimiter = value;
