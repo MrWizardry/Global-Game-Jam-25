@@ -35,12 +35,6 @@ public class BackGroundScroller : MonoBehaviour
             Debug.LogError("O objeto de background não possui um SpriteRenderer!");
             return;
         }
-
-        float cameraTop = Camera.main.transform.position.y + Camera.main.orthographicSize;
-
-        // Define as posições inicial e final
-        startPosition = background.position;
-        endPosition = new Vector2(startPosition.x, cameraTop - (spriteHeight/2));
     }
 
     void Update()
@@ -58,5 +52,12 @@ public class BackGroundScroller : MonoBehaviour
     private void CanScrollNow()
     {
         canScroll = true;
+
+
+        float cameraTop = Camera.main.transform.position.y + Camera.main.orthographicSize;
+
+        // Define as posições inicial e final
+        startPosition = background.position;
+        endPosition = new Vector2(startPosition.x, cameraTop - (spriteHeight / 2));
     }
 }
