@@ -74,7 +74,7 @@ public class SpawnManager : MonoBehaviour
 
     List<GameObject> GetAvailableSpawnPoints()
     {
-        if (gameTime < 10f) // Primeiros 30 segundos
+        if (gameTime < 30f) // Primeiros 30 segundos
         {
             return enemySpawnPoints;
         }
