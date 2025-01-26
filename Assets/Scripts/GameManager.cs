@@ -13,6 +13,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] private UpgradeManager upgradeManager;
 
     [SerializeField] private GameObject gameOverMenu;
+    [SerializeField] private GameObject endGameMenu;
+
+    [SerializeField] private BubblePoints pointsManager;
 
     private AudioManager audioManager;
     private void Start()
@@ -26,6 +29,7 @@ public class GameManager : MonoBehaviour
     public void GameOver()
     {
         Time.timeScale = 0;
+        pointsManager.OnGameOver();
         gameOverMenu.SetActive(true);
     }
     public void ResetGame()
@@ -58,5 +62,15 @@ public class GameManager : MonoBehaviour
     public void UpgradeMove()
     {
         upgradeManager.UpgradeMove();
+    }
+    public void GameWin()
+    {
+        Time.timeScale = 0;
+        animatorBG.Play("EndGame");
+
+
+
+        endGameMenu.SetActive(true);
+        pointsManager.OnEndGame();
     }
 }

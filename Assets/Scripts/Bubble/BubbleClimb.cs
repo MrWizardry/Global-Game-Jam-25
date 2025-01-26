@@ -13,8 +13,12 @@ public class BubbleClimb : MonoBehaviour
     private float elapsedTime = 0f;
     private float height = 0f;
 
+
+    [SerializeField] private GameManager manager;
     void Start()
     {
+        manager = FindFirstObjectByType<GameManager>().GetComponent<GameManager>();
+
         if(sliderHeight != null)
         {
             sliderHeight.maxValue = maxHeight;
@@ -23,6 +27,11 @@ public class BubbleClimb : MonoBehaviour
     }
     void Update()
     {
+        if(height >= maxHeight)
+        {
+            manager.GameWin();
+        }
+
         elapsedTime += Time.deltaTime;
 
         height = elapsedTime * metersPerSecond;

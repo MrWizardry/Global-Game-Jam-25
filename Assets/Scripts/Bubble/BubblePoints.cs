@@ -9,6 +9,7 @@ public class BubblePoints : MonoBehaviour
     [Header("UI References")]
     public TMP_Text inGameScoreText; // Exibe a pontuação durante o jogo
     public TMP_Text gameOverScoreText; // Exibe a pontuação final na tela de Game Over
+    public TMP_Text endGameScoreText; // Exibe a pontuação final na tela de End Game
     public TMP_Text menuTotalScoreText; // Exibe a pontuação geral no menu principal
 
     [Header("Score Settings")]
@@ -23,11 +24,10 @@ public class BubblePoints : MonoBehaviour
     void Start()
     {
         upgradeManager = FindFirstObjectByType<UpgradeManager>().GetComponent<UpgradeManager>();
-        totalScore = upgradeManager.GetTotalPoints();
         // Exibe a pontuação acumulada no menu, se aplicável
         if (menuTotalScoreText != null)
         {
-            menuTotalScoreText.text = $"Total Score: {totalScore}";
+            ChangeUI();
         }
     }
 
@@ -58,7 +58,22 @@ public class BubblePoints : MonoBehaviour
         // Atualiza o texto da pontuação final na tela de Game Over
         if (gameOverScoreText != null)
         {
-            gameOverScoreText.text = $"Game Over Score: {currentSessionScore}";
+            gameOverScoreText.text = $"Run Points: {currentSessionScore}";
+        }
+
+        upgradeManager.SetTotalPoints(totalScore);
+        // Reseta o tempo e a pontuação da partida atual para a próxima partida
+        ResetSessionScore();
+    }
+    public void OnEndGame()
+    {
+        // Atualiza a pontuação acumulada
+        totalScore += currentSessionScore;
+
+        // Atualiza o texto da pontuação final na tela de Game Over
+        if (gameOverScoreText != null)
+        {
+            endGameScoreText.text = $"Run Points: {currentSessionScore}";
         }
 
         upgradeManager.SetTotalPoints(totalScore);
@@ -71,7 +86,7 @@ public class BubblePoints : MonoBehaviour
         // Atualiza o texto do menu principal, se aplicável
         if (menuTotalScoreText != null)
         {
-            menuTotalScoreText.text = $"Total Score: {totalScore}";
+            menuTotalScoreText.text = $"Points: \n {totalScore}";
         }
 
     }
