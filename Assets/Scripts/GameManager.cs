@@ -66,7 +66,6 @@ public class GameManager : MonoBehaviour
     public void GameWin()
     {
         Time.timeScale = 0;
-        animatorBG.Play("EndGame");
 
 
 

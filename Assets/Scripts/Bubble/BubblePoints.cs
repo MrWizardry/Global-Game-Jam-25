@@ -71,7 +71,7 @@ public class BubblePoints : MonoBehaviour
         totalScore += currentSessionScore;
 
         // Atualiza o texto da pontuação final na tela de Game Over
-        if (gameOverScoreText != null)
+        if (endGameScoreText != null)
         {
             endGameScoreText.text = $"Run Points: {currentSessionScore}";
         }

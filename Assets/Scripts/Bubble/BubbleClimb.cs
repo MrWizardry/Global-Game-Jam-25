@@ -15,8 +15,10 @@ public class BubbleClimb : MonoBehaviour
 
 
     [SerializeField] private GameManager manager;
+    private bool gameEnd;
     void Start()
     {
+        gameEnd = false;
         manager = FindFirstObjectByType<GameManager>().GetComponent<GameManager>();
 
         if(sliderHeight != null)
@@ -27,18 +29,21 @@ public class BubbleClimb : MonoBehaviour
     }
     void Update()
     {
-        if(height >= maxHeight)
+        if(height >= maxHeight && !gameEnd)
         {
             manager.GameWin();
+            gameEnd = true;
         }
-
-        elapsedTime += Time.deltaTime;
-
-        height = elapsedTime * metersPerSecond;
-
-        if(sliderHeight != null)
+        else
         {
-            sliderHeight.value = Mathf.Clamp(height, 0, maxHeight);
+            elapsedTime += Time.deltaTime;
+
+            height = elapsedTime * metersPerSecond;
+
+            if (sliderHeight != null)
+            {
+                sliderHeight.value = Mathf.Clamp(height, 0, maxHeight);
+            }
         }
     }
 }
