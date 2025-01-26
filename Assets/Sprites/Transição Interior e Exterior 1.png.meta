@@ -1,19 +1,10 @@
 fileFormatVersion: 2
-guid: d1405058e723a7944b3a8828f6f11503
+guid: 40585bdcdc3692b49bb9320f78ea2276
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3465872906708205733
-    second: Megafone_0
-  - first:
-      213: 6615078413104199185
-    second: Megafone_1
-  - first:
-      213: 6279936183986068974
-    second: Megafone_2
-  - first:
-      213: 2879894047593336393
-    second: Megafone_3
+      213: -3346084548133718291
+    second: "Transi\xE7\xE3o Interior e Exterior_0"
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,12 +37,12 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
-    wrapU: 1
-    wrapV: 1
-    wrapW: 1
+    wrapU: 0
+    wrapV: 0
+    wrapW: 0
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
@@ -122,85 +113,22 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Megafone_0
+      name: "Transi\xE7\xE3o Interior e Exterior_0"
       rect:
         serializedVersion: 2
-        x: 86
-        y: 160
-        width: 493
-        height: 580
+        x: 0
+        y: 213
+        width: 1481
+        height: 666
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b5fb10f44feb6efc0800000000000000
-      internalID: -3465872906708205733
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Megafone_1
-      rect:
-        serializedVersion: 2
-        x: 581
-        y: 367
-        width: 83
-        height: 203
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 1163e6eb4ca7dcb50800000000000000
-      internalID: 6615078413104199185
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Megafone_2
-      rect:
-        serializedVersion: 2
-        x: 635
-        y: 297
-        width: 137
-        height: 354
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: eed9c92dfa0d62750800000000000000
-      internalID: 6279936183986068974
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Megafone_3
-      rect:
-        serializedVersion: 2
-        x: 679
-        y: 120
-        width: 223
-        height: 652
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 94e0091c06077f720800000000000000
-      internalID: 2879894047593336393
+      spriteID: de6f010f4d15091d0800000000000000
+      internalID: -3346084548133718291
       vertices: []
       indices: 
       edges: []
@@ -208,7 +136,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 84b633de743827f47b78a7461661838b
     internalID: 0
     vertices: []
     indices: 
@@ -216,10 +144,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Megafone_0: -3465872906708205733
-      Megafone_1: 6615078413104199185
-      Megafone_2: 6279936183986068974
-      Megafone_3: 2879894047593336393
+      "Transi\xE7\xE3o Interior e Exterior_0": -3346084548133718291
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

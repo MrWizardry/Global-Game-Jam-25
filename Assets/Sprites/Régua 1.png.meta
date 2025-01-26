@@ -1,19 +1,10 @@
 fileFormatVersion: 2
-guid: d1405058e723a7944b3a8828f6f11503
+guid: 600239e713016ff4ea3d1702544ab66c
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3465872906708205733
-    second: Megafone_0
-  - first:
-      213: 6615078413104199185
-    second: Megafone_1
-  - first:
-      213: 6279936183986068974
-    second: Megafone_2
-  - first:
-      213: 2879894047593336393
-    second: Megafone_3
+      213: 2278402291240658161
+    second: h
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -122,85 +113,22 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Megafone_0
+      name: "R\xE9guaa_1"
       rect:
         serializedVersion: 2
-        x: 86
-        y: 160
-        width: 493
-        height: 580
+        x: 13
+        y: 1011
+        width: 1894
+        height: 60
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b5fb10f44feb6efc0800000000000000
-      internalID: -3465872906708205733
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Megafone_1
-      rect:
-        serializedVersion: 2
-        x: 581
-        y: 367
-        width: 83
-        height: 203
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 1163e6eb4ca7dcb50800000000000000
-      internalID: 6615078413104199185
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Megafone_2
-      rect:
-        serializedVersion: 2
-        x: 635
-        y: 297
-        width: 137
-        height: 354
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: eed9c92dfa0d62750800000000000000
-      internalID: 6279936183986068974
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Megafone_3
-      rect:
-        serializedVersion: 2
-        x: 679
-        y: 120
-        width: 223
-        height: 652
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 94e0091c06077f720800000000000000
-      internalID: 2879894047593336393
+      spriteID: 1f4e5d8ffc28e9f10800000000000000
+      internalID: 2278402291240658161
       vertices: []
       indices: 
       edges: []
@@ -208,7 +136,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: c9c71fb933353d045a3ce067f7590b1b
     internalID: 0
     vertices: []
     indices: 
@@ -216,10 +144,8 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Megafone_0: -3465872906708205733
-      Megafone_1: 6615078413104199185
-      Megafone_2: 6279936183986068974
-      Megafone_3: 2879894047593336393
+      "R\xE9gua_0": 2278402291240658161
+      "R\xE9guaa_1": 2278402291240658161
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

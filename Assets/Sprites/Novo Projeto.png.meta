@@ -1,19 +1,10 @@
 fileFormatVersion: 2
-guid: d1405058e723a7944b3a8828f6f11503
+guid: d2174c76e87e48647aa87bca4ac15d4b
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3465872906708205733
-    second: Megafone_0
-  - first:
-      213: 6615078413104199185
-    second: Megafone_1
-  - first:
-      213: 6279936183986068974
-    second: Megafone_2
-  - first:
-      213: 2879894047593336393
-    second: Megafone_3
+      213: -9222171635321504806
+    second: Novo Projeto_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -122,85 +113,22 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Megafone_0
+      name: Novo Projeto_0
       rect:
         serializedVersion: 2
-        x: 86
-        y: 160
-        width: 493
-        height: 580
+        x: 123
+        y: 667
+        width: 356
+        height: 269
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b5fb10f44feb6efc0800000000000000
-      internalID: -3465872906708205733
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Megafone_1
-      rect:
-        serializedVersion: 2
-        x: 581
-        y: 367
-        width: 83
-        height: 203
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 1163e6eb4ca7dcb50800000000000000
-      internalID: 6615078413104199185
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Megafone_2
-      rect:
-        serializedVersion: 2
-        x: 635
-        y: 297
-        width: 137
-        height: 354
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: eed9c92dfa0d62750800000000000000
-      internalID: 6279936183986068974
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Megafone_3
-      rect:
-        serializedVersion: 2
-        x: 679
-        y: 120
-        width: 223
-        height: 652
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 94e0091c06077f720800000000000000
-      internalID: 2879894047593336393
+      spriteID: adb7af242c3440080800000000000000
+      internalID: -9222171635321504806
       vertices: []
       indices: 
       edges: []
@@ -208,7 +136,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 3ca1e08907288814ca61520be56d76df
     internalID: 0
     vertices: []
     indices: 
@@ -216,10 +144,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Megafone_0: -3465872906708205733
-      Megafone_1: 6615078413104199185
-      Megafone_2: 6279936183986068974
-      Megafone_3: 2879894047593336393
+      Novo Projeto_0: -9222171635321504806
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
