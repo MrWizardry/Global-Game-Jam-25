@@ -13,8 +13,11 @@ public class BackGroundScroller : MonoBehaviour
     private Vector2 endPosition; // Posição final do background
     private float elapsedTime = 0f; // Tempo decorrido
 
+    private bool canScroll;
+
     void Start()
     {
+        canScroll = false;
         if (background == null)
         {
             Debug.LogError("O background não foi atribuído!");
@@ -42,11 +45,18 @@ public class BackGroundScroller : MonoBehaviour
 
     void Update()
     {
-        if (background != null && elapsedTime < scrollDuration)
+        if(canScroll)
         {
-            elapsedTime += Time.deltaTime;
-            float progress = Mathf.Clamp01(elapsedTime / scrollDuration);
-            background.position = Vector2.Lerp(startPosition, endPosition, progress);
+            if (background != null && elapsedTime < scrollDuration)
+            {
+                elapsedTime += Time.deltaTime;
+                float progress = Mathf.Clamp01(elapsedTime / scrollDuration);
+                background.position = Vector2.Lerp(startPosition, endPosition, progress);
+            }
         }
+    }
+    private void CanScrollNow()
+    {
+        canScroll = true;
     }
 }
